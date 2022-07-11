@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Proyectos</h2>
-                    <h3 class="section-subheading text-muted">La vanguardia en la digitalizaciòn del paìs</h3>
+                    <h3 class="section-subheading text-muted">Parque Científico-Tecnológico</h3>
                 </div>
                 <div class="row">
 
@@ -38,13 +38,14 @@
                                     <img class="img-fluid d-block mx-auto" src="/media/{{ a.imagen }}" alt="..." />
                                     <p>{{ a.descrip }}</p>
                                     <ul class="list-inline">
-                                        <li>
-                                            <strong>Duracion</strong>
-                                            {{ a.duracion }}
-                                        </li>
+
                                         <li>
                                             <strong>Fecha de Inicio</strong>
                                             {{ a.fecha_inicio }}
+                                        </li>
+                                         <li>
+                                            <strong>Anexo1</strong>
+                                            <a href="/media/{{ a.file }}" target="_blank">Descargar</a>
                                         </li>
                                     </ul>
                                     <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">

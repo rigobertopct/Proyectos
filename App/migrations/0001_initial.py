@@ -20,6 +20,7 @@ class Migration(migrations.Migration):
                 ('duracion', models.PositiveIntegerField(verbose_name='Duración del Proyect')),
                 ('fecha_inicio', models.DateField(verbose_name='Fecha de Inicio')),
                 ('activo', models.BooleanField(default=False)),
+
             ],
             options={
                 'verbose_name': 'Proyecto',
