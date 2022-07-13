@@ -8,6 +8,8 @@ class Proyecto(models.Model):
     activo=models.BooleanField(default=False)
     imagen=models.ImageField(upload_to='proyecto/', null= True, blank=True)
     file=models.FileField(upload_to='proyecto/', null=True, blank=True)
+    programa = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name="Programa", null=True, blank=True)
+
 
     def __str__(self):
         return self.nombre
@@ -16,12 +18,42 @@ class Proyecto(models.Model):
         verbose_name_plural='Proyectos'
         db_table='proyectos'
 
-class FichaProyecto(models.Model):
+
+class Anexo(models.Model):
+    proyecto = models.OneToOneField(
+        Proyecto,
+        on_delete=models.CASCADE,
+        primary_key=True,
+    )
     nombre_programa = models.CharField(max_length=250, verbose_name="Nombre del Programa")
-    nombre_proyecto = models.TextField(max_length=250, verbose_name="Nombre del proyecto")
-    codigo_proyecto = models.TextField(max_length=250, verbose_name="Código del proyecto")
-    clasificación_proyecto = models.TextField(max_length=250, verbose_name="Clasificación del proyecto")
-    fecha_inicio = models.DateField(verbose_name="Fecha de Inicio")
-    activo = models.BooleanField(default=False)
-    imagen = models.ImageField(upload_to='proyecto/', null=True, blank=True)
-    file = models.FileField(upload_to='proyecto/', null=True, blank=True)
+    nombre_proyecto = models.CharField(max_length=250, verbose_name="Nombre del proyecto")
+    codigo_proyecto = models.CharField(max_length=250, verbose_name="Código del proyecto")
+    clasificación_proyecto = models.TextField(verbose_name="Clasificación del proyecto")
+    prioridad_establecida= models.TextField(verbose_name="PRIORIDAD ESTABLECIDA AL NIVEL QUE RESPONDE")
+    financiamiento= models.TextField(verbose_name="FINANCIAMIENTO")
+    resumen= models.TextField(verbose_name="Reumen del Proyecto")
+    problem_resolver= models.TextField(verbose_name="Problemas a resolver")
+    contexto= models.TextField(verbose_name="CONTEXTO, ANTECEDENTES Y JUSTIFICACIÓN DE PROYECTO")
+    beneficiarios= models.TextField(verbose_name="BENEFICIARIOS DIRECTOS")
+    clientes= models.TextField(verbose_name="CLIENTES o USUARIOS")
+    objetivog= models.TextField(verbose_name="OBJETIVO GENERAL")
+    objetivoe= models.TextField(verbose_name="OBJETIVOS ESPECÍFICOS")
+    resultados= models.TextField(verbose_name="RESULTADOS")
+    salidas= models.TextField(verbose_name="SALIDAS")
+    impactos= models.TextField(verbose_name="IMPACTOS")
+    riesgo= models.TextField(verbose_name="RIESGO IDENTIFICADO")
+    acci_mitagacion= models.TextField(verbose_name="ACCIONES MITIGACIÓN")
+    metodologia= models.TextField(verbose_name="METODOLOGÍAS. TECNOLOGÍAS, NORMAS Y MÉTODOS")
+
+    def __str__(self):
+        return self.nombre
+    class Meta:
+        verbose_name='Anexo'
+        verbose_name_plural='Anexos'
+        db_table='anexos'
+
+
+
+
+
+
