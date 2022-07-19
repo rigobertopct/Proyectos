@@ -7,8 +7,8 @@ class Proyecto(models.Model):
     fecha_inicio=models.DateField(verbose_name="Fecha de Inicio")
     activo=models.BooleanField(default=False)
     imagen=models.ImageField(upload_to='proyecto/', null= True, blank=True)
-    file=models.FileField(upload_to='proyecto/', null=True, blank=True)
-    programa = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name="Programa", null=True, blank=True)
+    file=models.FileField(upload_to='proyecto/Anexos1', null=True, blank=True)
+    programa = models.ForeignKey('self', on_delete=models.CASCADE, verbose_namema="Programa", null=True, blank=True)
 
 
     def __str__(self):
