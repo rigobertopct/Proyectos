@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('nombre_programa', models.CharField(max_length=250, verbose_name='Nombre del Programa')),
                 ('nombre_proyecto', models.TextField(max_length=250, verbose_name='Nombre del proyecto')),
                 ('codigo_proyecto', models.TextField(max_length=250, verbose_name='Código del proyecto')),
-                ('clasificación_proyecto', models.TextField(max_length=250, verbose_name='Clasificación del proyecto')),
+                ('clasificacion_proyecto', models.TextField(max_length=250, verbose_name='Clasificación del proyecto')),
             ],
         ),
         migrations.RemoveField(

@@ -1,14 +1,15 @@
 from django.db import models
 
 # Create your models here.
+
 class Proyecto(models.Model):
-    nombre=models.CharField(max_length=250, verbose_name="Nombre del Proyecto")
+    nombre=models.CharField(max_length=250, verbose_name="Nombre del pipProyecto")
     descrip=models.TextField(max_length=250, verbose_name="Descripción del Proyecto")
     fecha_inicio=models.DateField(verbose_name="Fecha de Inicio")
     activo=models.BooleanField(default=False)
     imagen=models.ImageField(upload_to='proyecto/', null= True, blank=True)
     file=models.FileField(upload_to='proyecto/Anexos1', null=True, blank=True)
-    programa = models.ForeignKey('self', on_delete=models.CASCADE, verbose_namema="Programa", null=True, blank=True)
+    programa = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name="Programa", null=True, blank=True)
 
 
     def __str__(self):
@@ -28,7 +29,7 @@ class Anexo(models.Model):
     nombre_programa = models.CharField(max_length=250, verbose_name="Nombre del Programa")
     nombre_proyecto = models.CharField(max_length=250, verbose_name="Nombre del proyecto")
     codigo_proyecto = models.CharField(max_length=250, verbose_name="Código del proyecto")
-    clasificación_proyecto = models.TextField(verbose_name="Clasificación del proyecto")
+    clasificacion_proyecto = models.TextField(verbose_name="Clasificación del proyecto")
     prioridad_establecida= models.TextField(verbose_name="PRIORIDAD ESTABLECIDA AL NIVEL QUE RESPONDE")
     financiamiento= models.TextField(verbose_name="FINANCIAMIENTO")
     resumen= models.TextField(verbose_name="Reumen del Proyecto")
@@ -52,6 +53,21 @@ class Anexo(models.Model):
         verbose_name_plural='Anexos'
         db_table='anexos'
 
+class Servicio(models.Model):
+    nombre=models.CharField(max_length=250, verbose_name="Nombre del servicio")
+    descrip=models.TextField(max_length=250, verbose_name="Descripción del servicio")
+    activo=models.BooleanField(default=False)
+    imagen=models.ImageField(upload_to='servicio/images', null= True, blank=True)
+    file=models.FileField(upload_to='servicio/documento', null=True, blank=True)
+
+
+
+    def __str__(self):
+        return self.nombre
+    class Meta:
+        verbose_name='Servicio'
+        verbose_name_plural='Servicios'
+        db_table='servicios'
 
 
 

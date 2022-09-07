@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('nombre_programa', models.CharField(max_length=250, verbose_name='Nombre del Programa')),
                 ('nombre_proyecto', models.CharField(max_length=250, verbose_name='Nombre del proyecto')),
                 ('codigo_proyecto', models.CharField(max_length=250, verbose_name='Código del proyecto')),
-                ('clasificación_proyecto', models.TextField(verbose_name='Clasificación del proyecto')),
+                ('clasificacion_proyecto', models.TextField(verbose_name='Clasificación del proyecto')),
                 ('prioridad_establecida', models.TextField(verbose_name='PRIORIDAD ESTABLECIDA AL NIVEL QUE RESPONDE')),
                 ('financiamiento', models.TextField(verbose_name='FINANCIAMIENTO')),
                 ('resumen', models.TextField(verbose_name='Reumen del Proyecto')),
