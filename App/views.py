@@ -33,6 +33,13 @@ class ProyectoCreateView(CreateView):
     form_class = ProyectoForm
     template_name = 'crear.html'
 
+class ProyectosView(ListView):
+        model = Proyecto
+        template_name = 'proyectos.html'
+
+        def get_queryset(self):
+            return Proyecto.objects.all()
+
 
 class AnexoCreateView(CreateView):
     model = Anexo
