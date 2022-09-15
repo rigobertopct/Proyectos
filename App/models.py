@@ -1,6 +1,12 @@
+import random
+
 from django.db import models
 
+
 # Create your models here.
+from django.db.models.functions import datetime
+from django.utils.datetime_safe import date
+
 
 class Proyecto(models.Model):
     nombre=models.CharField(max_length=250, verbose_name="Nombre del pipProyecto")
@@ -14,6 +20,8 @@ class Proyecto(models.Model):
 
     def __str__(self):
         return self.nombre
+    def porciento(self):
+        return datetime.Now-self.fecha_inicio
     class Meta:
         verbose_name='Proyecto'
         verbose_name_plural='Proyectos'
