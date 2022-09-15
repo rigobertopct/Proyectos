@@ -25,8 +25,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.HomeView.as_view(), name='index'),
     path('proyectos/', views.ProyectosView.as_view(), name='proyectos'),
-    path('Crear/', views.ProyectoCreateView.as_view(), name='crear'),
-
+    path('crear/', views.ProyectoCreateView.as_view(), name='crear'),
+    path('servicios/', views.ServiciosView.as_view(), name='servicios'),
+    path('encuentros/', views.EncuentrosView.as_view(), name='encuentros'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

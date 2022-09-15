@@ -21,8 +21,6 @@ class HomeView(ListView):
     def get_queryset(self):
         return Proyecto.objects.all()
 
-
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['servicios'] = Servicio.objects.all()
@@ -39,6 +37,21 @@ class ProyectosView(ListView):
 
         def get_queryset(self):
             return Proyecto.objects.all()
+
+
+class EncuentrosView(ListView):
+    model = Proyecto
+    template_name = 'encuentros.html'
+
+    def get_queryset(self):
+        return Proyecto.objects.all()
+
+class ServiciosView(ListView):
+        model = Proyecto
+        template_name = 'servicios.html'
+
+        def get_queryset(self):
+            return Servicio.objects.all()
 
 
 class AnexoCreateView(CreateView):
