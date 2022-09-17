@@ -1,5 +1,3 @@
-from django.test import TestCase
-
 from .models import Proyecto
 from _datetime import date
 proyectos=Proyecto.objects.all()
