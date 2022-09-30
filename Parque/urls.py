@@ -14,8 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from App import views
+from App.api.router import router_api
 
 
 from django.conf import settings
@@ -28,6 +29,7 @@ urlpatterns = [
     path('crear/', views.ProyectoCreateView.as_view(), name='crear'),
     path('servicios/', views.ServiciosView.as_view(), name='servicios'),
     path('encuentros/', views.EncuentrosView.as_view(), name='encuentros'),
+    path('api/',include(router_api.urls)),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

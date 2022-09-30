@@ -1,5 +1,5 @@
 import random
-
+from .services import get_username
 from django.shortcuts import render
 
 # Create your views here.
@@ -26,6 +26,7 @@ class HomeView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['servicios'] = Servicio.objects.all()
+        context['name']= get_username()
         return context
 
 class ProyectoCreateView(CreateView):
@@ -43,6 +44,7 @@ class ProyectosView(ListView):
 
 class EncuentrosView(ListView):
     model = Proyecto
+
     template_name = 'encuentros.html'
 
     def get_queryset(self):
